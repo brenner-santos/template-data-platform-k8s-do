@@ -6,6 +6,10 @@ metadata:
 spec:
   gatewayClassName: cilium
 
+  infrastructure:
+    annotations:
+      service.beta.kubernetes.io/do-loadbalancer-type: "REGIONAL"
+  
   listeners:
     - name: http
       protocol: HTTP
