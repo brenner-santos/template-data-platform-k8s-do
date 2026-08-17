@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/brenner-santos/template-data-platform-k8s-do.git
     targetRevision: main
-    path: shared/networking/gateway
+    path: shared/gateway
 
   destination:
     server: https://kubernetes.default.svc
