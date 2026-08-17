@@ -1,21 +1,30 @@
-provider:
-  name: digitalocean
-
-policy: sync
-
-registry: txt
-
-txtOwnerId: "kubernetes"
-
 sources:
   - gateway-httproute
 
 domainFilters:
   - brenner.santos.nom.com
 
-env:
-  - name: DO_TOKEN
-    valueFrom:
-      secretKeyRef:
-        name: digitalocean-dns
-        key: DO_TOKEN
+policy: sync
+
+registry: txt
+
+txtOwnerId: kubernetes
+
+provider:
+  name: webhook
+
+  webhook:
+    image:
+      repository: ghcr.io/amoniacou/external-dns-digitalocean-webhook
+      tag: v0.1.0
+      pullPolicy: IfNotPresent
+
+    env:
+      - name: DO_TOKEN
+        valueFrom:
+          secretKeyRef:
+            name: digitalocean-dns
+            key: DO_TOKEN
+
+    service:
+      port: 8080

@@ -7,14 +7,17 @@ metadata:
 spec:
   project: default
 
-  source:
-    repoURL: https://github.com/brenner-santos/template-data-platform-k8s-do.git
-    targetRevision: main
-    path: shared/external-dns
-
-    helm:
+  sources:
+    - repoURL: https://kubernetes-sigs.github.io/external-dns/
+      chart: external-dns
+      targetRevision: 1.21.1
+      helm:
       valueFiles:
-        - values.yaml
+        - $values/shared/external-dns/values.yaml
+
+    - repoURL: https://github.com/brenner-santos/template-data-platform-k8s-do.git
+      targetRevision: main
+      ref: values
 
   destination:
     server: https://kubernetes.default.svc
