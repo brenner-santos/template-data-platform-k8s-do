@@ -1,0 +1,21 @@
+provider:
+  name: digitalocean
+
+policy: sync
+
+registry: txt
+
+txtOwnerId: "kubernetes"
+
+sources:
+  - gateway-httproute
+
+domainFilters:
+  - brenner.santos.nom.com
+
+env:
+  - name: DO_TOKEN
+    valueFrom:
+      secretKeyRef:
+        name: digitalocean-dns
+        key: DO_TOKEN
