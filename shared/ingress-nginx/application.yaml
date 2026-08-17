@@ -13,7 +13,7 @@ spec:
         valueFiles:
           - $values/shared/ingress-nginx/values.yaml
 
-    - repoURL: https://github.com/brenner-santos/template-data-platform-k8s-do
+    - repoURL: https://github.com/brenner-santos/template-data-platform-k8s-do.git
       targetRevision: main
       ref: values
   
