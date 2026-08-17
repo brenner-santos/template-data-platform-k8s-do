@@ -12,8 +12,8 @@ spec:
       chart: external-dns
       targetRevision: 1.21.1
       helm:
-      valueFiles:
-        - $values/shared/external-dns/values.yaml
+        valueFiles:
+          - $values/shared/external-dns/values.yaml
 
     - repoURL: https://github.com/brenner-santos/template-data-platform-k8s-do.git
       targetRevision: main

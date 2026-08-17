@@ -16,7 +16,6 @@ provider:
   webhook:
     image:
       repository: ghcr.io/amoniacou/external-dns-digitalocean-webhook
-      tag: v0.1.0
       pullPolicy: IfNotPresent
 
     env:
